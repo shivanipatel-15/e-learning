@@ -1,0 +1,812 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: #2d7567;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.btn.focus, .btn:focus {
+    box-shadow: none;
+}
+
+.spinner-area {
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_page .left_area {
+    flex: 0 0 55%;
+    justify-content: center;
+    text-align: center;
+    padding: 35px 0;
+    height: 100vh;
+}
+
+.logo_img {
+    height: 100px;
+    width: 100px;
+}
+
+.login_page .right_area {
+    flex: 0 0 45%;
+    height: 100vh;
+    background: #b5ddd4;
+    align-items: center;
+    display: flex;
+    padding: 0 100px;
+}
+
+.school_name {
+    color: #2d7567;
+    margin-left: 60px;
+}
+
+.school_name h1 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.school_name p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.page_banner {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    padding: 0 100px;
+}
+
+.page_banner img {
+    max-height: 550px;
+    width: 100%;
+}
+
+.login_card {
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+}
+
+.login_card .card-body {
+    padding: 35px 40px;
+}
+
+.login_card .card-title {
+    font-size: 25px;
+    color: #3b3b3b;
+    margin-bottom: 38px;
+    font-weight: 500;
+}
+
+.login_card .form-control {
+    border-radius: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.login_card .form-control:focus {
+    border-color: #495057;
+    box-shadow: 0 0 0 0.2rem rgb(73 80 87 / 25%);
+}
+
+.btn-login, .btn-login:hover, .btn-login:active, .btn-login:focus {
+    margin-top: 30px;
+    border-radius: 35px;
+    background: #2d7567 !important;
+    border-color: #2d7567 !important;
+}
+
+.login_card label {
+    font-weight: 500;
+    color: #3b3b3b;
+}
+
+.remember_me_forgot_password {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Header css */
+
+.header {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 13px #ddd;
+    border-radius: 0 0 15px 15px;
+    padding: 15px 45px;
+}
+
+.header_tools {
+    display: flex;
+    align-items: center;
+}
+
+.header_menu {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding-left: 30px;
+    border-left: 1px solid #ddd;
+    margin-left: 30px;
+    position: relative;
+}
+
+.profile_submenu {
+    position: absolute;
+    top: 53px;
+    background: #fff;
+    left: 0;
+    right: -45px;
+    border-radius: 0 0 15px 0;
+    box-shadow: 0 6px 15px #ddd;
+    z-index: 1;
+}
+
+.profile_submenu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.profile_submenu ul li {
+    list-style: none;
+}
+
+.profile_submenu ul li .menu_link {
+    padding: 5px 55px;
+    display: block;
+    text-align: left;
+    color: #2d7567;
+}
+
+.profile_submenu ul li .menu_link:hover {
+    background: #f9fafa;
+    color: #2d7567;
+    text-decoration: none;
+}
+
+.person_name {
+    font-size: 20px;
+    margin: 0;
+    color: #2d7567;
+}
+
+.person_role {
+    font-size: 15px;
+    margin: 0;
+}
+
+.user_info {
+    margin-left: 15px;
+    background-image: url('./../images/drop_down_arrow.svg');
+    background-repeat: no-repeat;
+    background-position: top 10px right;
+    padding-right: 22px;
+    background-size: 12px;
+    min-width: 115px;
+}
+
+.header_search .input-search, .header_search .btn-search {
+    height: 35px;
+}
+
+.header_search .input-search {
+    border-radius: 30px 0 0 30px;
+    padding-left: 15px;
+    background: #f0f1f3;
+    border: none;
+    color: #cdcdcd;
+    font-size: 14px;
+    padding-right: 25px;
+}
+
+.header_search {
+    display: flex;
+    align-items: center;
+}
+
+.header_search .btn-search {
+    border: none;
+    border-radius: 30px;
+    width: 60px;
+    margin-left: -14px;
+    background: #b5ddd4;
+}
+
+.notification {
+    cursor: pointer;
+}
+
+.page_layout {
+    padding-left: 250px;
+    background: #f0f1f3;
+    min-height: 100vh;
+    padding-bottom: 70px;
+}
+
+.fixed-top {
+    width: 250px;
+    height: 100%;
+    background: #b5ddd4;
+    /* border-radius: 0 25px 25px 0; */
+    overflow: auto;
+}
+
+.site_logo {
+    margin: 20px auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.fixed-top .nav {
+    flex-direction: column;
+}
+
+.fixed-top .nav li .nav-link {
+    padding: 15px 20px;
+    display: block;
+    text-align: left;
+    color: #2d7567;
+}
+
+.fixed-top .nav li .nav-link:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.fixed-top .nav li .nav-link:hover, .fixed-top .nav li .nav-link.active {
+    text-decoration: none;
+    background: #f0f1f3;
+    color: #2d7567;
+}
+
+.fixed-top .dropdown-toggle::after {
+    position: absolute;
+    right: 20px;
+    top: 23px;
+}
+
+.fixed-top .dropdown {
+    margin: 0;
+    padding: 0;
+}
+
+.page_layout .container {
+    max-width: 94%;
+}
+
+.fixed-top .dropdown.open {
+    background: #f0f1f3;
+}
+
+.fixed-top ul.dropdown li a {
+    padding: 10px 0 10px 45px;
+    display: block;
+}
+
+.count-card {
+    border-radius: 10px;
+    border-left: 10px solid #ddd;
+    box-shadow: 0 0 8px #ddd;
+}
+
+.count-card .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+}
+
+.card-data {
+    text-align: center;
+    width: 54%;
+    border-left: 1px solid #ddd;
+}
+
+.card-action {
+    width: 40%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-data p {
+    margin-bottom: 0;
+}
+
+.card-dashboard {
+    border-radius: 10px;
+    box-shadow: 0 0 8px #ddd;
+    color: #2d7567;
+    background: #f9fafa;
+}
+
+.card-dashboard .card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.action {
+    cursor: pointer;
+}
+
+.custom-badge {
+    color: #fff;
+    background: #2d7567;
+    height: 35px;
+    line-height: 30px;
+    width: 85px;
+    border-radius: 35px;
+    font-weight: 400;
+    margin-right: 20px;
+}
+
+.custom-badge.width-auto {
+    width: auto;
+}
+
+.notice-time {
+    color: #606060;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.notice-body {
+    color: #606060;
+    margin-top: 15px;
+}
+
+/* width */
+
+.custom-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: #c1e2da;
+    border-radius: 15px;
+}
+
+/* Handle */
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: #2d7567;
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: #2d7567;
+}
+
+.card-detail {
+    max-height: 250px;
+    overflow: auto;
+    padding-right: 18px;
+}
+
+.online-class {
+    flex: 0 0 50%;
+}
+
+.card-online-class .card-detail {
+    max-height: 205px;
+}
+
+.video_card {
+    position: relative;
+}
+
+.video_card .person_name {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #595959;
+    color: #fff;
+    font-size: 13px;
+    padding: 3px 15px;
+}
+
+.mute_icon {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #595959;
+    padding: 10px;
+    display: flex;
+}
+
+.video_card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.online-students {
+    max-height: 650px;
+    overflow: auto;
+}
+
+.video_icon {
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    background: #f2f5fa;
+    border-radius: 2px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.video_icon.text {
+    border-radius: 50%;
+    align-items: center;
+    padding: 0;
+    color: #fff;
+    background: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user_type {
+    font-weight: 500;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #4b897d;
+    font-size: 15px;
+}
+
+.online_users {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.form-control {
+    border-color: #2d7567;
+}
+
+.assignment_table {
+    color: #2d7567;
+    margin-bottom: 0;
+}
+
+.assignment_table thead {
+    background: #b5ddd4;
+}
+
+.assignment_table thead th {
+    font-weight: 500;
+}
+
+.menu_bar {
+    position: absolute;
+    top: 15px;
+    left: 52px;
+    border: 0;
+    color: #2d7567;
+    background: white;
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+button.close_btn {
+    position: absolute;
+    border: 0;
+    background-color: #b5ddd4;
+    left: 0;
+    color: #117a8b;
+    display: none;
+}
+
+.attendance_filter label, .attendance_status {
+    font-weight: 500;
+    color: #2d7567;
+}
+
+.attendance_filter .form-group {
+    margin: 0;
+}
+
+.attendance_filter .form-control {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    color: #2d7567;
+}
+
+.attendance_filter .form-control:focus {
+    box-shadow: none
+}
+
+.attendance_filter {
+    padding-right: 15px;
+}
+
+.attendance_filter:last-child {
+    border-right: none;
+    padding-right: 0;
+}
+
+.attendance_status {
+    margin-right: 15px;
+}
+
+.btn-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+}
+
+.btn-attendance {
+    color: #939393;
+    background: #f1f2f4;
+    border-color: #f1f2f4;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 0.25rem !important;
+    padding-left: 35px;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    background-size: 15px;
+}
+
+.btn-present {
+    background-image: url('./../images/present.svg');
+}
+
+.btn-absent {
+    background-image: url('./../images/absent.svg');
+}
+
+.btn-late {
+    background-image: url('./../images/late.svg');
+}
+
+.btn-check:active+.btn-present, .btn-check:checked+.btn-present, .btn-present:hover {
+    color: #3d8173;
+    background-color: #def9ea;
+    border-color: #def9ea;
+    background-image: url('./../images/present_color.svg');
+}
+
+.btn-check:active+.btn-absent, .btn-check:checked+.btn-absent, .btn-absent:hover {
+    color: #e4494a;
+    background-color: #fdeaec;
+    border-color: #fdeaec;
+    background-image: url('./../images/absent_color.svg');
+}
+
+.btn-check:active+.btn-late, .btn-check:checked+.btn-late, .btn-late:hover {
+    color: #ebcd00;
+    background-color: #fff4e4;
+    border-color: #fff4e4;
+    background-image: url('./../images/late_color.svg');
+}
+
+.attendance_table .table-header {
+    background: #b5ddd4;
+    color: #2d7567;
+    font-weight: 500;
+}
+
+.attendance_table .table-body {
+    color: #2d7567;
+}
+
+.iframe_size {
+    height: 550px;
+    width: 100%;
+}
+
+/* select teacher timetable css */
+
+.card.select-teacher-card {
+    background: #f9fafa;
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 3px 2px 5px 1px #ccc;
+}
+
+label.teacher_title {
+    color: #2d7567;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+select.form-control.select_teacher_menu {
+    border: 1px solid #2d7567;
+    border-radius: 30px;
+    color: #495057;
+    height: 35px;
+    font-size: 14px;
+}
+
+.select_box {
+    position: relative;
+}
+
+.select_box .select_teacher_div:after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2d7567;
+    position: absolute;
+    right: 5px;
+    content: "";
+    z-index: 98;
+    bottom: 15px;
+}
+
+.timetable_div {
+    margin-bottom: 50px;
+}
+
+.timetable_div span {
+    color: #2d7567;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.card.timetable_listcard {
+    margin-top: 30px;
+    background: #adb5bd;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+img.card-img-top.timetable-img {
+    padding: 5px;
+}
+
+img.update_img, img.delete_img {
+    margin-right: 10px;
+    width: 15%;
+}
+
+
+.update_timetable_div, .delete_timetable_div ,.view_timetable_div{
+    font-size: 15px;
+    color: #2d7567;
+    font-weight: 500;
+}
+
+input#exampleInputEmail1 {
+    display: none;
+}
+
+.card.timetable_listcard.upload_div {
+    height: 14em;
+    background-color: white;
+    border: 1px solid #2d7567;
+}
+
+.upload_timetable_div {
+    margin: 99px 70px;
+}
+
+img.upload_img {
+    margin-right: 10px;
+    width: 10%;
+}
+
+.filters .attendance_filter {
+    border: none;
+    padding: 0;
+}
+
+.filters .attendance_filter .form-control[type='text'] {
+    border-bottom: 1px solid #ddd;
+    border-radius: 0;
+}
+
+a.badge.custom-badge:hover {
+    color: white;
+}
+
+.notice-header.notice_div {
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(45, 117, 103, 0.15);
+}
+
+.footer {
+    position: fixed;
+    left: 250px;
+    bottom: 0;
+    right: 0;
+    background: #f0f1f3;
+}
+
+.modal-dialog .timetable-img {
+    height: 65vh;
+}
+
+.rules_table {
+    background: #b5ddd4;
+    height: 25px;
+    color: #2d7567;
+    padding-left: 5px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2d7567 !important;
+    border-color: #798d89 !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #2d7567 !important;
+    border-color: #2d7567 !important;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.btn_name {
+    color: #2d7567;
+    text-align: none;
+}
+
+a.view_link {
+    margin-left: 12px;
+}
+
+.status_color {
+    background: red;
+}
+
+.modal-xl {
+    max-width: 100%;
+}
+
+.modal-dialog {
+    margin: 17px 17px 17px 0;
+}
+
+.modal-dialog .timetable-img {
+    height: 100vh;
+}
+.modal-header {
+    border-bottom: 0;
+    padding: .5rem;
+}
+
+.color_title{
+    color: #2d7567;
+}

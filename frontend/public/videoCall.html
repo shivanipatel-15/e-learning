@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <script src='https://meet.jit.si/external_api.js'></script>
+    <style>
+        .placeholder {
+            position: absolute;
+            top: 22px;
+            left: 27px;
+            height: 75px;
+            width: 130px;
+            z-index: 1;
+            background: #000;
+            border-radius: 5px;
+        }
+    </style>
+    
+    <title>Vide call</title>
+  </head>
+  <body>
+    <div id="meet"></div>
+    <div class="placeholder"></div>
+    <!-- Optional JavaScript -->
+    <script>
+         function qs(search_for) {
+            var query = window.location.search.substring(1);
+            var param = query.split('&');
+            for (var i=0; i<param.length; i++) {
+                var pos = param[i].indexOf('=');
+                if (pos > 0  && search_for == param[i].substring(0,pos)) {
+                    return param[i].substring(pos+1);;
+                }
+            }
+            return "";
+        }
+        let toolbarButtons = []
+        let remoteVideoMenu = {}
+        let disableRemoteMute = false
+        let notifications = [
+            'connection.CONNFAIL', // shown when the connection fails,
+            'dialog.cameraNotSendingData', // shown when there's no feed from user's camera
+            'dialog.kickTitle', // shown when user has been kicked
+            'dialog.liveStreaming', // livestreaming notifications (pending, on, off, limits)
+            'dialog.lockTitle', // shown when setting conference password fails
+            'dialog.maxUsersLimitReached', // shown when maximmum users limit has been reached
+            'dialog.micNotSendingData', // shown when user's mic is not sending any audio
+            'dialog.passwordNotSupportedTitle', // shown when setting conference password fails due to password format
+            'dialog.recording', // recording notifications (pending, on, off, limits)
+            'dialog.remoteControlTitle', // remote control notifications (allowed, denied, start, stop, error)
+            'dialog.reservationError',
+            'dialog.serviceUnavailable', // shown when server is not reachable
+            'dialog.sessTerminated', // shown when there is a failed conference session
+            'dialog.sessionRestarted', // show when a client reload is initiated because of bridge migration
+            'dialog.tokenAuthFailed', // show when an invalid jwt is used
+            'dialog.transcribing', // transcribing notifications (pending, off)
+            'dialOut.statusMessage', // shown when dial out status is updated.
+            'liveStreaming.busy', // shown when livestreaming service is busy
+            'liveStreaming.failedToStart', // shown when livestreaming fails to start
+            'liveStreaming.unavailableTitle', // shown when livestreaming service is not reachable
+            'lobby.joinRejectedMessage', // shown when while in a lobby, user's request to join is rejected
+            'lobby.notificationTitle', // shown when lobby is toggled and when join requests are allowed / denied
+            'localRecording.localRecording', // shown when a local recording is started
+            'notify.disconnected', // shown when a participant has left
+            'notify.grantedTo', // shown when moderator rights were granted to a participant
+            'notify.invitedOneMember', // shown when 1 participant has been invited
+            'notify.invitedThreePlusMembers', // shown when 3+ participants have been invited
+            'notify.invitedTwoMembers', // shown when 2 participants have been invited
+            'notify.kickParticipant', // shown when a participant is kicked
+            'notify.mutedRemotelyTitle', // shown when user is muted by a remote party
+            'notify.mutedTitle', // shown when user has been muted upon joining,
+            'notify.newDeviceAudioTitle', // prompts the user to use a newly detected audio device
+            'notify.newDeviceCameraTitle', // prompts the user to use a newly detected camera
+            'notify.passwordRemovedRemotely', // shown when a password has been removed remotely
+            'notify.passwordSetRemotely', // shown when a password has been set remotely
+            'notify.raisedHand', // shown when a partcipant used raise hand,
+            'notify.startSilentTitle', // shown when user joined with no audio
+            'prejoin.errorDialOut',
+            'prejoin.errorDialOutDisconnected',
+            'prejoin.errorDialOutFailed',
+            'prejoin.errorDialOutStatus',
+            'prejoin.errorStatusCode',
+            'prejoin.errorValidation',
+            'recording.busy', // shown when recording service is busy
+            'recording.failedToStart', // shown when recording fails to start
+            'recording.unavailableTitle', // shown when recording service is not reachable
+            'toolbar.noAudioSignalTitle', // shown when a broken mic is detected
+            'toolbar.noisyAudioInputTitle', // shown when noise is detected for the current microphone
+            'transcribing.failedToStart' // shown when transcribing fails to start
+        ]
+        if(qs("user") === 'student') {
+            toolbarButtons = [
+                'microphone', 'camera', 'closedcaptions', 'desktop', 'fullscreen',
+                'fodeviceselection', 'chat', 'etherpad', 'raisehand', 'videoquality'
+            ]
+            remoteVideoMenu = {
+                disableKick: true,
+                disableGrantModerator: true
+            }
+            disableRemoteMute = true
+        } else {
+            toolbarButtons = [
+                'microphone', 'camera', 'closedcaptions', 'desktop', 'embedmeeting', 'fullscreen',
+                'fodeviceselection', 'profile', 'chat', 'recording',
+                'livestreaming', 'etherpad', 'sharedvideo', 'shareaudio', 'settings', 'raisehand',
+                'videoquality', 'filmstrip', 'invite', 'feedback', 'stats', 'shortcuts',
+                'tileview', 'select-background', 'download', 'help', 'mute-everyone', 'mute-video-everyone', 'security'
+            ]
+        }
+        
+        const domain = 'meet.jit.si';
+        const options = {
+            roomName: qs("roomName").replace("%26", "-") || 'Class',
+            width: '100%',
+            height: 550,
+            parentNode: document.querySelector('#meet'),
+            userInfo: {
+                email: qs("email") || 'Enter Your Email',
+                displayName: qs("name") || 'John Deo'
+            },
+            configOverwrite : { toolbarButtons, remoteVideoMenu, disableRemoteMute, notifications },
+            interfaceConfigOverwrite: {
+                APP_NAME: 'Online Learning',
+                JITSI_WATERMARK_LINK: '',
+                SHOW_BRAND_WATERMARK: false,
+                SHOW_CHROME_EXTENSION_BANNER: false,
+                SHOW_JITSI_WATERMARK: false,
+                SHOW_WATERMARK_FOR_GUESTS: false,
+                MOBILE_APP_PROMO: false
+            }
+        }
+        const api = new JitsiMeetExternalAPI(domain, options)
+    </script>
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
